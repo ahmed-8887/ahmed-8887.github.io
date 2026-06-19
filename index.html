@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Hassan Butt | Portfolio</title>
-    <!-- Font Awesome for sleek modern icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -162,13 +161,24 @@
             justify-content: center;
         }
 
-        .profile-img {
+        .profile-img-container {
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            object-fit: cover;
+            overflow: hidden;
             border: 5px solid var(--bg-cards);
             box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .profile-img-container:hover .profile-img {
+            transform: scale(1.05);
         }
 
         /* Generic Layout & Sections */
@@ -199,7 +209,7 @@
             margin: 0.6rem auto 0;
         }
 
-        /* 13 Live Production Websites Grid */
+        /* Live Production Websites Grid */
         .web-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -214,7 +224,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.3s ease;
         }
 
         .web-card:hover {
@@ -326,6 +336,74 @@
             font-size: 0.95rem;
         }
 
+        /* Verified Certifications Section Styling */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background-color: var(--bg-cards);
+            border: 1px solid var(--border-muted);
+            border-radius: 4px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-hover);
+        }
+
+        .cert-header h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-authority {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cert-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .cert-details {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .cert-details li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-details li i {
+            font-size: 0.8rem;
+        }
+
+        .btn-sm {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            width: max-content;
+        }
+
         /* Unified Tech Stack Tags Layout */
         .stack-box {
             display: flex;
@@ -403,7 +481,7 @@
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
-            .profile-img {
+            .profile-img-container {
                 width: 260px;
                 height: 260px;
             }
@@ -411,7 +489,7 @@
 
         @media (max-width: 600px) {
             .nav-links {
-                display: none; /* Keeps navigation clean and clear on mobile items */
+                display: none;
             }
             .hero-content h1 {
                 font-size: 2.4rem;
@@ -424,7 +502,6 @@
 </head>
 <body>
 
-    <!-- Main Navigation Bar -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">Ahmed<span>.</span></a>
@@ -433,28 +510,29 @@
                 <li><a href="#creations">Live Work</a></li>
                 <li><a href="#software">Software</a></li>
                 <li><a href="#journey">Journey</a></li>
+                <li><a href="#certs">Certifications</a></li>
                 <li><a href="#stack">Stack</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Header Section -->
     <header class="hero" id="about">
         <div class="hero-content">
             <h1>Ahmed Hassan Butt</h1>
             <h2>Software Developer</h2>
-            <p>I am a BS Computer Science graduate focusing on constructing clean web applications. Experienced across modern structural front-end solutions and back-end database orchestration.</p>
+            <p>I am a BS Computer Science graduate focusing on constructing clean web applications[cite: 38, 40]. Experienced across modern structural front-end solutions and back-end database orchestration[cite: 14].</p>
             <div class="hero-buttons">
                 <a href="#creations" class="btn btn-primary">Explore Work</a>
                 <a href="Ahmed CS.pdf" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-file-pdf"></i> Resume CV</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="profile.jpg" alt="Ahmed Hassan Butt" class="profile-img">
+            <div class="profile-img-container">
+                <img src="profile.jpg" alt="Ahmed Hassan Butt" class="profile-img">
+            </div>
         </div>
     </header>
 
-    <!-- 13 Live Production Websites Section -->
     <section id="creations">
         <div class="section-container">
             <h3 class="section-title">Live Creations</h3>
@@ -476,28 +554,26 @@
         </div>
     </section>
 
-    <!-- Core Enterprise Software Projects Section -->
     <section id="software">
         <div class="section-container">
             <h3 class="section-title">Software Implementations</h3>
             <div class="software-grid">
                 <div class="software-card">
                     <h4>BIRI POS Software</h4>
-                    <p>Designed and structured Point of Sale runtime environments tracking daily ledger logs, transaction assets, and operational checkout queries.</p>
+                    <p>Designed and structured Point of Sale runtime environments tracking daily ledger logs, transaction assets, and operational checkout queries[cite: 42, 43].</p>
                 </div>
                 <div class="software-card">
                     <h4>Caterify</h4>
-                    <p>A multi-tiered Catering Management system built to balance resource provisioning, event timespans, and localized consumer logs.</p>
+                    <p>A multi-tiered Catering Management system built to balance resource provisioning, event timespans, and localized consumer logs[cite: 44].</p>
                 </div>
                 <div class="software-card">
                     <h4>FMS (Factory Management System)</h4>
-                    <p>An integrated inventory logic software system managing manufacturing raw resources, processing pipelines, and shipping tallies.</p>
+                    <p>An integrated inventory logic software system managing manufacturing raw resources, processing pipelines, and shipping tallies[cite: 45].</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Dynamic Professional & Educational Timeline Section -->
     <section id="journey">
         <div class="section-container">
             <h3 class="section-title">Professional Journey</h3>
@@ -507,64 +583,98 @@
                     <div class="timeline-item">
                         <span class="time-badge">Jan 2026 - Present</span>
                         <h4>Software Developer</h4>
-                        <div class="institution">Alhamad Digital Services</div>
+                        <div class="institution">Alhamad Digital Services [cite: 17, 18]</div>
                     </div>
                     <div class="timeline-item">
                         <span class="time-badge">Jul 2025 - Dec 2025</span>
                         <h4>Development Internship</h4>
-                        <div class="institution">ADAN IT Center | Gujrat</div>
+                        <div class="institution">ADAN IT Center | Gujrat [cite: 19, 20, 21]</div>
                     </div>
                     <div class="timeline-item">
                         <span class="time-badge">May 2024 - Jun 2025</span>
                         <h4>Web Developer</h4>
-                        <div class="institution">Muhammad Hassan Digital Services | Kharian</div>
+                        <div class="institution">Muhammad Hassan Digital Services | Kharian [cite: 22, 23]</div>
                     </div>
                     <div class="timeline-item">
                         <span class="time-badge">Sep 2022 - Feb 2024</span>
                         <h4>WordPress Designer</h4>
-                        <div class="institution">AB Consultants</div>
+                        <div class="institution">AB Consultants [cite: 24, 25, 26]</div>
                     </div>
                 </div>
                 <div class="journey-column">
-                    <h3><i class="fa-solid fa-graduation-cap"></i> Education & Achievements</h3>
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Education Achievements</h3>
                     <div class="timeline-item">
                         <span class="time-badge">2021 - 2025</span>
                         <h4>BS Computer Science</h4>
-                        <div class="institution">University of Gujrat</div>
+                        <div class="institution">University of Gujrat [cite: 38, 39, 40]</div>
                     </div>
                     <div class="timeline-item">
-                        <span class="time-badge">Feb 2023</span>
-                        <h4>WordPress Course Training</h4>
-                        <div class="institution">DigiSkills Training Program (Virtual University)</div>
+                        <span class="time-badge">2018 - 2020</span>
+                        <h4>Intermediate (ICS)</h4>
+                        <div class="institution">Aspire Group of Colleges [cite: 33, 34, 35, 36, 37]</div>
                     </div>
                     <div class="timeline-item">
-                        <span class="time-badge">Jan 2021</span>
-                        <h4>Web Designing Certification</h4>
-                        <div class="institution">Alhamd Digital Academy</div>
+                        <span class="time-badge">2015 - 2017</span>
+                        <h4>Matriculation (Computer Science)</h4>
+                        <div class="institution">Govt High School Sehna [cite: 28, 29, 30, 32]</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tech Stack & Tools Section -->
+    <section id="certs">
+        <div class="section-container">
+            <h3 class="section-title">Verified Certifications</h3>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <h4>Web Designing Certification</h4>
+                        <span class="cert-authority">Alhamd Digital Academy [cite: 48, 63]</span>
+                        <span class="cert-date">Issued: Jan 2021 [cite: 49, 76]</span>
+                    </div>
+                    <ul class="cert-details">
+                        <li><i class="fa-solid fa-circle-check"></i> 3-Month Professional Training Course [cite: 68]</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Front-End Development & Interface Design [cite: 68]</li>
+                    </ul>
+                    <a href="Ahmad Hassan Certificate.pdf" target="_blank" class="btn btn-secondary btn-sm">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Document
+                    </a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <h4>WordPress Course Training</h4>
+                        <span class="cert-authority">DigiSkills Training Program [cite: 51, 78]</span>
+                        <span class="cert-date">Issued: Feb 2023 | ID: ARCQH47MK [cite: 87, 91]</span>
+                    </div>
+                    <ul class="cert-details">
+                        <li><i class="fa-solid fa-circle-check"></i> Virtual University & Ignite Specialization [cite: 81, 84, 85, 86]</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Ministry of IT & Telecom Initiative [cite: 77]</li>
+                    </ul>
+                    <a href="digiskill wordpress certificate.pdf" target="_blank" class="btn btn-secondary btn-sm">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Document
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="stack">
         <div class="section-container">
             <h3 class="section-title">Core Tools & Tech Stack</h3>
             <div class="stack-box">
-                <div class="tag"><i class="fa-brands fa-php"></i> PHP</div>
-                <div class="tag"><i class="fa-brands fa-js"></i> JavaScript</div>
-                <div class="tag"><i class="fa-brands fa-wordpress"></i> WordPress</div>
-                <div class="tag"><i class="fa-solid fa-cubes"></i> Elementor</div>
-                <div class="tag"><i class="fa-solid fa-database"></i> SQL / MySQL</div>
-                <div class="tag"><i class="fa-brands fa-github"></i> GitHub</div>
-                <div class="tag"><i class="fa-solid fa-code"></i> VS Code</div>
+                <div class="tag"><i class="fa-brands fa-php"></i> PHP [cite: 14]</div>
+                <div class="tag"><i class="fa-brands fa-js"></i> JavaScript [cite: 14]</div>
+                <div class="tag"><i class="fa-brands fa-wordpress"></i> WordPress [cite: 16]</div>
+                <div class="tag"><i class="fa-solid fa-cubes"></i> Elementor [cite: 15]</div>
+                <div class="tag"><i class="fa-solid fa-database"></i> SQL / MySQL [cite: 12]</div>
+                <div class="tag"><i class="fa-brands fa-github"></i> GitHub [cite: 12]</div>
+                <div class="tag"><i class="fa-solid fa-code"></i> VS Code [cite: 11]</div>
                 <div class="tag"><i class="fa-solid fa-server"></i> XAMPP</div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Area -->
     <footer>
         <div class="socials">
             <a href="https://github.com/ahmed-8887" target="_blank" class="icon"><i class="fa-brands fa-github"></i></a>
