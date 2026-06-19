@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Hassan Butt | Portfolio</title>
+    <!-- Font Awesome for sleek modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-main: #1a232a;
+            --bg-cards: #242f38;
+            --bg-nav: rgba(26, 35, 42, 0.9);
+            --accent-blue: #4f687a;
+            --accent-hover: #638299;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-muted: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Fixed Navigation Menu */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--bg-nav);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-muted);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-hover);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-light);
+        }
+
+        /* Hero Header Section */
+        .hero {
+            padding: 9rem 2rem 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            min-height: 85vh;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 0.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content h2 {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 620px;
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-muted);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-cards);
+            border-color: var(--text-muted);
+        }
+
+        .hero-image {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--bg-cards);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+
+        /* Generic Layout & Sections */
+        section {
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border-muted);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--text-muted);
+            margin: 0.6rem auto 0;
+        }
+
+        /* 13 Live Production Websites Grid */
+        .web-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .web-card {
+            background-color: var(--bg-cards);
+            border: 1px solid var(--border-muted);
+            border-radius: 4px;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .web-card:hover {
+            background-color: #2b3843;
+            transform: translateY(-2px);
+            border-color: var(--accent-hover);
+        }
+
+        .web-card h4 {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-light);
+            word-break: break-all;
+            padding-right: 0.5rem;
+        }
+
+        .web-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+
+        .web-card:hover .web-link {
+            color: var(--text-light);
+        }
+
+        /* Systems Core Software Columns */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .software-card {
+            background-color: var(--bg-cards);
+            border: 1px solid var(--border-muted);
+            border-radius: 4px;
+            padding: 2.5rem 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .software-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .software-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .software-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Journey & History Timeline Layout */
+        .journey-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .journey-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+
+        .timeline-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-left: 1.8rem;
+            border-left: 1px solid var(--border-muted);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -4.5px;
+            top: 7px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--text-muted);
+            border-radius: 50%;
+        }
+
+        .time-badge {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.1rem;
+        }
+
+        .timeline-item .institution {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Unified Tech Stack Tags Layout */
+        .stack-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .tag {
+            background-color: var(--bg-cards);
+            border: 1px solid var(--border-muted);
+            padding: 0.8rem 1.6rem;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .tag i {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Minimal Modern Footer */
+        footer {
+            background-color: #12181d;
+            padding: 4.5rem 2rem 2.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border-muted);
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .icon {
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .icon:hover {
+            color: var(--text-light);
+            transform: translateY(-2px);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Screen Breakpoints & Adaptability */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 7rem;
+                gap: 2.5rem;
+            }
+            .hero-content p {
+                margin: 0 auto 2.5rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .journey-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .profile-img {
+                width: 260px;
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none; /* Keeps navigation clean and clear on mobile items */
+            }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            section {
+                padding: 4.5rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Ahmed<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#creations">Live Work</a></li>
+                <li><a href="#software">Software</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#stack">Stack</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero" id="about">
+        <div class="hero-content">
+            <h1>Ahmed Hassan Butt</h1>
+            <h2>Software Developer</h2>
+            <p>I am a BS Computer Science graduate focusing on constructing clean web applications. Experienced across modern structural front-end solutions and back-end database orchestration.</p>
+            <div class="hero-buttons">
+                <a href="#creations" class="btn btn-primary">Explore Work</a>
+                <a href="Ahmed CS.pdf" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-file-pdf"></i> Resume CV</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="profile.jpg" alt="Ahmed Hassan Butt" class="profile-img">
+        </div>
+    </header>
+
+    <!-- 13 Live Production Websites Section -->
+    <section id="creations">
+        <div class="section-container">
+            <h3 class="section-title">Live Creations</h3>
+            <div class="web-grid">
+                <div class="web-card"><h4>abconsultants.pk</h4><a href="https://abconsultants.pk/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>aswstore.pk</h4><a href="https://aswstore.pk/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>clickbazarltd.com</h4><a href="https://clickbazarltd.com/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>alqayoomfoundation.com</h4><a href="https://alqayoomfoundation.com/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>meisprayfoam.com</h4><a href="http://meisprayfoam.com/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>bashirbuilders.com</h4><a href="https://bashirbuilders.com/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>girlgocode.com</h4><a href="https://girlgocode.com/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>munchiizz.com</h4><a href="https://www.munchiizz.com/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>continuumsolutionsltd.com</h4><a href="https://continuumsolutionsltd.com/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>rideluxuryllc.com</h4><a href="https://rideluxuryllc.com/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>bathrooms.direct</h4><a href="https://bathrooms.direct/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>heating.direct</h4><a href="https://heating.direct/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                <div class="web-card"><h4>bathrooms.sale</h4><a href="https://bathrooms.sale/" target="_blank" class="web-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Enterprise Software Projects Section -->
+    <section id="software">
+        <div class="section-container">
+            <h3 class="section-title">Software Implementations</h3>
+            <div class="software-grid">
+                <div class="software-card">
+                    <h4>BIRI POS Software</h4>
+                    <p>Designed and structured Point of Sale runtime environments tracking daily ledger logs, transaction assets, and operational checkout queries.</p>
+                </div>
+                <div class="software-card">
+                    <h4>Caterify</h4>
+                    <p>A multi-tiered Catering Management system built to balance resource provisioning, event timespans, and localized consumer logs.</p>
+                </div>
+                <div class="software-card">
+                    <h4>FMS (Factory Management System)</h4>
+                    <p>An integrated inventory logic software system managing manufacturing raw resources, processing pipelines, and shipping tallies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Professional & Educational Timeline Section -->
+    <section id="journey">
+        <div class="section-container">
+            <h3 class="section-title">Professional Journey</h3>
+            <div class="journey-grid">
+                <div class="journey-column">
+                    <h3><i class="fa-solid fa-briefcase"></i> Experience History</h3>
+                    <div class="timeline-item">
+                        <span class="time-badge">Jan 2026 - Present</span>
+                        <h4>Software Developer</h4>
+                        <div class="institution">Alhamad Digital Services</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-badge">Jul 2025 - Dec 2025</span>
+                        <h4>Development Internship</h4>
+                        <div class="institution">ADAN IT Center | Gujrat</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-badge">May 2024 - Jun 2025</span>
+                        <h4>Web Developer</h4>
+                        <div class="institution">Muhammad Hassan Digital Services | Kharian</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-badge">Sep 2022 - Feb 2024</span>
+                        <h4>WordPress Designer</h4>
+                        <div class="institution">AB Consultants</div>
+                    </div>
+                </div>
+                <div class="journey-column">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Education & Achievements</h3>
+                    <div class="timeline-item">
+                        <span class="time-badge">2021 - 2025</span>
+                        <h4>BS Computer Science</h4>
+                        <div class="institution">University of Gujrat</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-badge">Feb 2023</span>
+                        <h4>WordPress Course Training</h4>
+                        <div class="institution">DigiSkills Training Program (Virtual University)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-badge">Jan 2021</span>
+                        <h4>Web Designing Certification</h4>
+                        <div class="institution">Alhamd Digital Academy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack & Tools Section -->
+    <section id="stack">
+        <div class="section-container">
+            <h3 class="section-title">Core Tools & Tech Stack</h3>
+            <div class="stack-box">
+                <div class="tag"><i class="fa-brands fa-php"></i> PHP</div>
+                <div class="tag"><i class="fa-brands fa-js"></i> JavaScript</div>
+                <div class="tag"><i class="fa-brands fa-wordpress"></i> WordPress</div>
+                <div class="tag"><i class="fa-solid fa-cubes"></i> Elementor</div>
+                <div class="tag"><i class="fa-solid fa-database"></i> SQL / MySQL</div>
+                <div class="tag"><i class="fa-brands fa-github"></i> GitHub</div>
+                <div class="tag"><i class="fa-solid fa-code"></i> VS Code</div>
+                <div class="tag"><i class="fa-solid fa-server"></i> XAMPP</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer>
+        <div class="socials">
+            <a href="https://github.com/ahmed-8887" target="_blank" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ahmed-hassan-butt-717b833a6" target="_blank" class="icon"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://web.facebook.com/profile.php?id=100010160385768" target="_blank" class="icon"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://x.com/AhmedHassanBut2" target="_blank" class="icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/ahmed_butt_1001/" target="_blank" class="icon"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2026 Ahmed Hassan Butt. Crafted cleanly for professional tracking.</p>
+    </footer>
+
+</body>
+</html>
