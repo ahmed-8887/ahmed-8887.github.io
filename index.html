@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Hassan Butt | Full-Stack Web Developer</title>
+    <title>Ahmed Hassan Butt | Software Developer Portfolio</title>
     <!-- Font Awesome for sleek modern icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -266,6 +266,9 @@
             border-radius: 4px;
             padding: 2.5rem 2rem;
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .software-card:hover {
@@ -274,13 +277,23 @@
 
         .software-card h4 {
             font-size: 1.3rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.25rem;
             font-weight: 600;
+        }
+
+        .software-tech {
+            font-size: 0.85rem;
+            color: var(--accent-hover);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
         }
 
         .software-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
+            margin-bottom: 1.5rem;
         }
 
         /* Journey & History Timeline Layout */
@@ -335,6 +348,27 @@
         .timeline-item .institution {
             color: var(--text-muted);
             font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-item ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .timeline-item ul li::before {
+            content: "•";
+            color: var(--accent-blue);
+            position: absolute;
+            left: 0;
         }
 
         /* Verified Certifications Section Styling */
@@ -523,7 +557,7 @@
         <div class="hero-content">
             <h1>Ahmed Hassan Butt</h1>
             <h2>Software Developer</h2>
-            <p>I am a BS Computer Science graduate focusing on constructing clean web applications. Experienced across modern structural front-end solutions and back-end database orchestration.</p>
+            <p>Software Developer with hands-on experience building web applications, business-management software, and WordPress sites using PHP, JavaScript, and MySQL[cite: 6]. Skilled at translating client requirements into clean, maintainable, and scalable code structures[cite: 6].</p>
             <div class="hero-buttons">
                 <a href="#creations" class="btn btn-primary">Explore Work</a>
                 <a href="Ahmed CS.pdf" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-file-pdf"></i> Resume CV</a>
@@ -563,17 +597,32 @@
         <div class="section-container">
             <h3 class="section-title">Software Implementations</h3>
             <div class="software-grid">
+                <!-- Project 1 -->
                 <div class="software-card">
-                    <h4>BIRI POS Software</h4>
-                    <p>Designed and structured Point of Sale runtime environments tracking daily ledger logs, transaction assets, and operational checkout queries.</p>
+                    <div>
+                        <h4>BIRI POS Software</h4>
+                        <div class="software-tech">PHP, MySQL, REST API, Bootstrap[cite: 6]</div>
+                        <p>A comprehensive point-of-sale platform optimized for business retail transaction streaming and reliable live inventory balancing logs[cite: 6].</p>
+                    </div>
+                    <a href="https://github.com/iftikharg786/biriposretail-pos" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source Code[cite: 6]</a>
                 </div>
+                <!-- Project 2 -->
                 <div class="software-card">
-                    <h4>Caterify</h4>
-                    <p>A multi-tiered Catering Management system built to balance resource provisioning, event timespans, and localized consumer logs.</p>
+                    <div>
+                        <h4>Caterify</h4>
+                        <div class="software-tech">PHP, MySQL, JavaScript[cite: 6]</div>
+                        <p>Dedicated catering-management system designed for organizing day-to-day operations, vendor logs, and incoming business order records[cite: 6].</p>
+                    </div>
+                    <a href="https://github.com/Alhamd-Digital-Solution-PVT-LTD/caterify" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source Code[cite: 6]</a>
                 </div>
+                <!-- Project 3 -->
                 <div class="software-card">
-                    <h4>FMS (Factory Management System)</h4>
-                    <p>An integrated inventory logic software system managing manufacturing raw resources, processing pipelines, and shipping tallies.</p>
+                    <div>
+                        <h4>FMS (Factory Management System)</h4>
+                        <div class="software-tech">PHP, JavaScript, MySQL[cite: 6]</div>
+                        <p>An integrated architectural platform addressing inventory logic tracking, raw goods distribution, and real-time operations logging[cite: 6].</p>
+                    </div>
+                    <span class="btn btn-secondary btn-sm" style="opacity: 0.6; cursor: not-allowed;"><i class="fa-solid fa-lock"></i> Internal Code[cite: 6]</span>
                 </div>
             </div>
         </div>
@@ -589,40 +638,58 @@
                     <div class="timeline-item">
                         <span class="time-badge">Jan 2026 - Present</span>
                         <h4>Software Developer</h4>
-                        <div class="institution">Alhamad Digital Services</div>
+                        <div class="institution">Alhamad Digital Services | Kharian, Pakistan[cite: 6]</div>
+                        <ul>
+                            <li>Develop and maintain custom web software using PHP, JavaScript, and MySQL[cite: 6].</li>
+                            <li>Built BIRI retail POS and spearheaded features for Caterify and FMS platforms[cite: 6].</li>
+                            <li>Partner directly with clients to map business scopes into functional releases[cite: 6].</li>
+                        </ul>
                     </div>
                     <div class="timeline-item">
                         <span class="time-badge">Jul 2025 - Dec 2025</span>
-                        <h4>Development Internship</h4>
-                        <div class="institution">ADAN IT Center | Gujrat</div>
+                        <h4>Software Development Intern</h4>
+                        <div class="institution">ADAN IT Center | Gujrat, Pakistan[cite: 6]</div>
+                        <ul>
+                            <li>Assisted in coding and QA testing apps under senior engineer frameworks[cite: 6].</li>
+                            <li>Supported testing, tracking, and debugging processes to bolster app stability[cite: 6].</li>
+                        </ul>
                     </div>
                     <div class="timeline-item">
                         <span class="time-badge">May 2024 - Jun 2025</span>
                         <h4>Web Developer</h4>
-                        <div class="institution">Muhammad Hassan Digital Services | Kharian</div>
+                        <div class="institution">Muhammad Hassan Digital Services | Kharian, Pakistan[cite: 6]</div>
+                        <ul>
+                            <li>Engineered highly responsive sites using customized WordPress/Elementor engines[cite: 6].</li>
+                            <li>Handled ecosystem assembly configurations, domain deployments, and site tuning[cite: 6].</li>
+                        </ul>
                     </div>
                     <div class="timeline-item">
                         <span class="time-badge">Sep 2022 - Feb 2024</span>
                         <h4>WordPress Designer</h4>
-                        <div class="institution">AB Consultants</div>
+                        <div class="institution">AB Consultants | Kharian, Pakistan[cite: 6]</div>
+                        <ul>
+                            <li>Created crisp digital responsive web styles using custom Elementor setups[cite: 6].</li>
+                            <li>Gathered clear specification lists to ship structures supporting target branding[cite: 6].</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="journey-column">
                     <h3><i class="fa-solid fa-graduation-cap"></i> Education Achievements</h3>
                     <div class="timeline-item">
-                        <span class="time-badge">2021 - 2025</span>
-                        <h4>BS Computer Science</h4>
-                        <div class="institution">University of Gujrat</div>
+                        <span class="time-badge">Sep 2021 - Jun 2025</span>
+                        <h4>BS, Computer Science</h4>
+                        <div class="institution">University of Gujrat | Gujrat, Pakistan[cite: 6]</div>
                     </div>
                     <div class="timeline-item">
-                        <span class="time-badge">2018 - 2020</span>
+                        <span class="time-badge">Sep 2018 - Apr 2020</span>
                         <h4>Intermediate (ICS)</h4>
-                        <div class="institution">Aspire Group of Colleges</div>
+                        <div class="institution">Aspire Group of Colleges | Kharian, Pakistan[cite: 6]</div>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.2rem;">Pre-Engineering with Computer Science[cite: 6]</p>
                     </div>
                     <div class="timeline-item">
-                        <span class="time-badge">2015 - 2017</span>
+                        <span class="time-badge">Apr 2015 - Mar 2017</span>
                         <h4>Matriculation (Computer Science)</h4>
-                        <div class="institution">Govt High School Sehna</div>
+                        <div class="institution">Govt. High School Sehna | Kharian, Pakistan[cite: 6]</div>
                     </div>
                 </div>
             </div>
@@ -637,13 +704,13 @@
                 <!-- Certificate 1 -->
                 <div class="cert-card">
                     <div class="cert-header">
-                        <h4>Web Designing Certification</h4>
-                        <span class="cert-authority">Alhamd Digital Academy</span>
-                        <span class="cert-date">Issued: Jan 2021</span>
+                        <h4>Web Design Certification</h4>
+                        <span class="cert-authority">Alhamd Digital Academy[cite: 6]</span>
+                        <span class="cert-date">Issued: Nov 2020[cite: 6]</span>
                     </div>
                     <ul class="cert-details">
-                        <li><i class="fa-solid fa-circle-check"></i> 3-Month Professional Training Course</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Front-End Development & Interface Design</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Professional Technical Training Course[cite: 6]</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Front-End Development & Layout Architecture</li>
                     </ul>
                     <a href="Ahmad Hassan Certificate.pdf" target="_blank" class="btn btn-secondary btn-sm">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> View Document
@@ -653,12 +720,12 @@
                 <div class="cert-card">
                     <div class="cert-header">
                         <h4>WordPress Course Training</h4>
-                        <span class="cert-authority">DigiSkills Training Program</span>
-                        <span class="cert-date">Issued: Feb 2023 | ID: ARCQH47MK</span>
+                        <span class="cert-authority">DigiSkills Training Program[cite: 6]</span>
+                        <span class="cert-date">Issued: Nov 2022[cite: 6]</span>
                     </div>
                     <ul class="cert-details">
-                        <li><i class="fa-solid fa-circle-check"></i> Virtual University & Ignite Specialization</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Ministry of IT & Telecom Initiative</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Virtual University & Ignite Core Curriculum[cite: 6]</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Advanced Plugin Casing & Development Logic</li>
                     </ul>
                     <a href="digiskill wordpress certificate.pdf" target="_blank" class="btn btn-secondary btn-sm">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> View Document
@@ -673,13 +740,13 @@
         <div class="section-container">
             <h3 class="section-title">Core Tools & Tech Stack</h3>
             <div class="stack-box">
-                <div class="tag"><i class="fa-brands fa-php"></i> PHP</div>
-                <div class="tag"><i class="fa-brands fa-js"></i> JavaScript</div>
-                <div class="tag"><i class="fa-brands fa-wordpress"></i> WordPress</div>
-                <div class="tag"><i class="fa-solid fa-cubes"></i> Elementor</div>
-                <div class="tag"><i class="fa-solid fa-database"></i> SQL / MySQL</div>
-                <div class="tag"><i class="fa-brands fa-github"></i> GitHub</div>
-                <div class="tag"><i class="fa-solid fa-code"></i> VS Code</div>
+                <div class="tag"><i class="fa-brands fa-php"></i> PHP[cite: 6]</div>
+                <div class="tag"><i class="fa-brands fa-js"></i> JavaScript[cite: 6]</div>
+                <div class="tag"><i class="fa-brands fa-wordpress"></i> WordPress[cite: 6]</div>
+                <div class="tag"><i class="fa-solid fa-cubes"></i> Elementor[cite: 6]</div>
+                <div class="tag"><i class="fa-solid fa-database"></i> SQL / MySQL[cite: 6]</div>
+                <div class="tag"><i class="fa-brands fa-github"></i> GitHub[cite: 6]</div>
+                <div class="tag"><i class="fa-solid fa-code"></i> VS Code[cite: 6]</div>
                 <div class="tag"><i class="fa-solid fa-server"></i> XAMPP</div>
             </div>
         </div>
@@ -694,7 +761,7 @@
             <a href="https://x.com/AhmedHassanBut2" target="_blank" class="icon"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://www.instagram.com/ahmed_butt_1001/" target="_blank" class="icon"><i class="fa-brands fa-instagram"></i></a>
         </div>
-        <p>&copy; 2026 Ahmed Hassan Butt. Crafted cleanly for professional tracking.</p>
+        <p>&copy; 2026 Ahmed Hassan Butt. Crafted cleanly for professional tracking[cite: 6].</p>
     </footer>
 
 </body>
